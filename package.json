@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "convex dev --once"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.6.0",
@@ -33,4 +34,5 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
+  
 }
