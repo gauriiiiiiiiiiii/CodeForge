@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "convex dev --once"
+    "postinstall": "convex codegen"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.6.0",
