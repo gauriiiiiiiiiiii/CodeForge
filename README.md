@@ -39,15 +39,6 @@ npm install
 npm run dev
 ```
 
-4. **Open** http://localhost:3000
-
-## 📚 Documentation
-
-Comprehensive documentation in `STUDY/` folder:
-- **01_PROJECT_STRUCTURE.md** - Complete code overview (file-by-file)
-- **02_BUILD_PROCESS.md** - How it was built from scratch (step-by-step)
-- **03_INTERVIEW_DEEP_DIVE.md** - Technical deep dives (for interviews)
-
 ## 🏗️ Architecture
 
 - **Frontend**: React 18 + Next.js 15 + Zustand
@@ -65,7 +56,7 @@ Comprehensive documentation in `STUDY/` folder:
 **Dependencies**: 180 npm packages (all latest)  
 **Code**: 40+ files, fully typed, 0 errors  
 
-## 🔑 For Interview Preparation
+## 🔑 Demonstration
 
 This project demonstrates:
 - Full-stack architecture (frontend + backend)
@@ -76,8 +67,6 @@ This project demonstrates:
 - Scalable component architecture
 - Database optimization patterns
 - Production deployment strategies
-
-**Read** `STUDY/03_INTERVIEW_DEEP_DIVE.md` for comprehensive technical analysis.
 
 ## 🐛 Development
 
