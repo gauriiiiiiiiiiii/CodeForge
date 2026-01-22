@@ -1,37 +1,91 @@
-<h1 align="center">✨  CodeForge - Craft Code, Forge Solutions ✨</h1>
+# CodeForge - Share & Execute Code Snippets
 
-### Highlights:
-- 🚀 Tech stack: Next.js 15 + Convex + Clerk + TypeScript
-- 💻 Online IDE with multi-language support (10 languages)
-- 🎨 Customizable experience with 5 VSCode themes
-- ✨ Smart output handling with Success & Error states
-- 💎 Flexible pricing with Free & Pro plans
-- 🤝 Community-driven code sharing system
-- 🔍 Advanced filtering & search capabilities
-- 👤 Personal profile with execution history tracking
-- 📊 Comprehensive statistics dashboard
-- ⚙️ Customizable font size controls
-- 🔗 Webhook integration support
-- 🌟 Professional deployment walkthrough
+CodeForge is a web application where developers can write, execute, and share code snippets across 10+ programming languages in real-time.
 
-### Setup .env file
+## ✨ Features
 
-```js
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-CONVEX_DEPLOYMENT=
-NEXT_PUBLIC_CONVEX_URL=
+- **Write Code**: Monaco Editor with syntax highlighting for 10+ languages
+- **Execute Code**: Run code instantly using Piston API (JavaScript, Python, Rust, Go, Java, C++, and more)
+- **Share Snippets**: Save code to community library for others to discover
+- **Discover Code**: Browse snippets, search by language, star favorites
+- **Community**: Comment on snippets, interact with other developers
+- **Pro Features**: Unlock all languages with pro subscription
+- **Profile**: Track execution history and statistics
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+1. **Set environment variables** in `.env.local`:
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
+CLERK_SECRET_KEY=your_clerk_secret
+NEXT_PUBLIC_CONVEX_URL=your_convex_url
+CLERK_WEBHOOK_SECRET=your_webhook_secret
+LEMON_SQUEEZY_WEBHOOK_SECRET=your_payment_secret
 ```
 
-### Add these env to Convex Dashboard
-
-```js
-CLERK_WEBHOOK_SECRET=
-LEMON_SQUEEZY_WEBHOOK_SECRET=
+2. **Install dependencies**:
+```bash
+npm install
 ```
 
-### Run the app
-
-```shell
+3. **Run development server**:
+```bash
 npm run dev
 ```
+
+4. **Open** http://localhost:3000
+
+## 📚 Documentation
+
+Comprehensive documentation in `STUDY/` folder:
+- **01_PROJECT_STRUCTURE.md** - Complete code overview (file-by-file)
+- **02_BUILD_PROCESS.md** - How it was built from scratch (step-by-step)
+- **03_INTERVIEW_DEEP_DIVE.md** - Technical deep dives (for interviews)
+
+## 🏗️ Architecture
+
+- **Frontend**: React 18 + Next.js 15 + Zustand
+- **Backend**: Convex (serverless DB)
+- **Auth**: Clerk (OAuth + JWT)
+- **Code Execution**: Piston API
+- **Styling**: Tailwind CSS + Framer Motion
+- **Payments**: Lemon Squeezy
+
+## 📊 Key Technologies
+
+**Languages**: JavaScript, Python, Rust, Go, Java, C++, Ruby, PHP, C#, Kotlin  
+**Database**: Convex (WebSocket real-time sync)  
+**Hosting**: Vercel (frontend) + Convex (backend)  
+**Dependencies**: 180 npm packages (all latest)  
+**Code**: 40+ files, fully typed, 0 errors  
+
+## 🔑 For Interview Preparation
+
+This project demonstrates:
+- Full-stack architecture (frontend + backend)
+- Real-time database patterns (Convex WebSocket)
+- OAuth & JWT authentication (Clerk)
+- Microservice integration (Piston API)
+- Webhook security (HMAC verification)
+- Scalable component architecture
+- Database optimization patterns
+- Production deployment strategies
+
+**Read** `STUDY/03_INTERVIEW_DEEP_DIVE.md` for comprehensive technical analysis.
+
+## 🐛 Development
+
+```bash
+npm run dev      # Start dev server (port 3000)
+npm run build    # Build production bundle
+npm start        # Start production server
+npm run lint     # Run ESLint
+npx convex codegen  # Generate Convex types
+```
+

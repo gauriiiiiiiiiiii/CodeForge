@@ -1,8 +1,10 @@
+// Clerk authentication is configured via ConvexProviderWithClerk
+// in src/components/providers/ConvexClientProvider.tsx
+// This file is not needed when using Clerk directly with Convex
+
 export default {
   providers: [
-    {
-      domain: "https://enabling-alien-47.clerk.accounts.dev/",
-      applicationID: "convex",
-    },
+    // Clerk is configured in the React provider
+    // No additional configuration needed here
   ],
 };
