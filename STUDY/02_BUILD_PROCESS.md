@@ -370,8 +370,11 @@ export const saveExecution = mutation({
       .withIndex("by_user_id", q => q.eq("userId", identity.subject))
       .first();
     
-    // Pro feature: non-JS languages require pro subscription
-    if (!user.isPro && args.language !== "javascript") {
+    // Pro feature: non-free languages require pro subscription
+    // FREE: JavaScript, C, C++, Python, Java
+    // PRO: Rust, Go, C#, Kotlin, PHP, Ruby
+    const FREE_LANGUAGES = ["javascript", "c", "cpp", "python", "java"];
+    if (!user.isPro && !FREE_LANGUAGES.includes(args.language)) {
       throw new ConvexError("Pro subscription required");
     }
     

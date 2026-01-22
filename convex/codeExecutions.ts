@@ -2,6 +2,10 @@ import { ConvexError, v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 import { paginationOptsValidator } from "convex/server";
 
+// FREE languages: JavaScript, C, C++, Python, Java
+// PRO languages: Rust, Go, C#, Kotlin, PHP, Ruby
+const FREE_LANGUAGES = ["javascript", "c", "cpp", "python", "java"];
+
 export const saveExecution = mutation({
   args: {
     language: v.string(),
@@ -21,7 +25,7 @@ export const saveExecution = mutation({
       .filter((q) => q.eq(q.field("userId"), identity.subject))
       .first();
 
-    if (!user?.isPro && args.language !== "javascript") {
+    if (!user?.isPro && !FREE_LANGUAGES.includes(args.language)) {
       throw new ConvexError("Pro subscription required to use this language");
     }
 

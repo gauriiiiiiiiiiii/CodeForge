@@ -50,13 +50,14 @@ npm run dev
 
 ## 📊 Key Technologies
 
-**Languages**: JavaScript, Python, Rust, Go, Java, C++, Ruby, PHP, C#, Kotlin  
+**FREE Languages**: JavaScript, C, C++, Python, Java  
+**PRO Languages**: Rust, Go, C#, Kotlin, PHP, Ruby  
 **Database**: Convex (WebSocket real-time sync)  
 **Hosting**: Vercel (frontend) + Convex (backend)  
 **Dependencies**: 180 npm packages (all latest)  
 **Code**: 40+ files, fully typed, 0 errors  
 
-## 🔑 Demonstration
+## � Demonstration
 
 This project demonstrates:
 - Full-stack architecture (frontend + backend)

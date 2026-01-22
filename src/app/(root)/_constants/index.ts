@@ -13,6 +13,11 @@ type LanguageConfig = Record<
   }
 >;
 
+// FREE languages: JavaScript, C, C++, Python, Java
+// PRO languages: Rust, Go, C#, Kotlin, PHP, Ruby
+export const FREE_LANGUAGES = ["javascript", "c", "cpp", "python", "java"];
+export const PRO_LANGUAGES = ["rust", "go", "csharp", "kotlin", "php", "ruby"];
+
 export const LANGUAGE_CONFIG: LanguageConfig = {
   javascript: {
     id: "javascript",
@@ -36,42 +41,47 @@ console.log('Even numbers:', evenNumbers);
 const sum = numbers.reduce((acc, curr) => acc + curr, 0);
 console.log('Sum of numbers:', sum);`,
   },
-  typescript: {
-    id: "typescript",
-    label: "TypeScript",
-    logoPath: "/typescript.png",
-    pistonRuntime: { language: "typescript", version: "5.0.3" },
-    monacoLanguage: "typescript",
-    defaultCode: `// TypeScript Playground
-interface NumberArray {
-  numbers: number[];
-  sum(): number;
-  squares(): number[];
-  evenNumbers(): number[];
-}
+  c: {
+    id: "c",
+    label: "C",
+    logoPath: "/c.png",
+    pistonRuntime: { language: "c", version: "10.2.0" },
+    monacoLanguage: "c",
+    defaultCode: `#include <stdio.h>
 
-class MathOperations implements NumberArray {
-  constructor(public numbers: number[]) {}
-
-  sum(): number {
-    return this.numbers.reduce((acc, curr) => acc + curr, 0);
-  }
-
-  squares(): number[] {
-    return this.numbers.map(n => n * n);
-  }
-
-  evenNumbers(): number[] {
-    return this.numbers.filter(n => n % 2 === 0);
-  }
-}
-
-const math = new MathOperations([1, 2, 3, 4, 5]);
-
-console.log('Original numbers:', math.numbers);
-console.log('Squared numbers:', math.squares());
-console.log('Even numbers:', math.evenNumbers());
-console.log('Sum of numbers:', math.sum());`,
+int main() {
+    // Create array
+    int numbers[] = {1, 2, 3, 4, 5};
+    int size = 5;
+    
+    // Print original numbers
+    printf("Original numbers: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", numbers[i]);
+    }
+    printf("\\n");
+    
+    // Calculate squares
+    printf("Squared numbers: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", numbers[i] * numbers[i]);
+    }
+    printf("\\n");
+    
+    // Filter even numbers
+    printf("Even numbers: ");
+    for (int i = 0; i < size; i++) {
+        if (numbers[i] % 2 == 0) printf("%d ", numbers[i]);
+    }
+    printf("\\n");
+    
+    // Calculate sum
+    int sum = 0;
+    for (int i = 0; i < size; i++) sum += numbers[i];
+    printf("Sum of numbers: %d\\n", sum);
+    
+    return 0;
+}`,
   },
   python: {
     id: "python",
@@ -310,29 +320,31 @@ puts "Even numbers: #{even_numbers.join(' ')}"
 sum = numbers.sum
 puts "Sum of numbers: #{sum}"`,
   },
-  swift: {
-    id: "swift",
-    label: "Swift",
-    logoPath: "/swift.png",
-    pistonRuntime: { language: "swift", version: "5.3.3" },
-    monacoLanguage: "swift",
-    defaultCode: `// Create array
-let numbers = [1, 2, 3, 4, 5]
-
-// Print original numbers
-print("Original numbers: \\(numbers)")
-
-// Calculate squares
-let squares = numbers.map { $0 * $0 }
-print("Squared numbers: \\(squares)")
-
-// Filter even numbers
-let evenNumbers = numbers.filter { $0 % 2 == 0 }
-print("Even numbers: \\(evenNumbers)")
-
-// Calculate sum
-let sum = numbers.reduce(0, +)
-print("Sum of numbers: \\(sum)")`,
+  kotlin: {
+    id: "kotlin",
+    label: "Kotlin",
+    logoPath: "/kotlin.png",
+    pistonRuntime: { language: "kotlin", version: "1.8.0" },
+    monacoLanguage: "kotlin",
+    defaultCode: `fun main() {
+    // Create list
+    val numbers = listOf(1, 2, 3, 4, 5)
+    
+    // Print original numbers
+    println("Original numbers: $numbers")
+    
+    // Calculate squares
+    val squares = numbers.map { it * it }
+    println("Squared numbers: $squares")
+    
+    // Filter even numbers
+    val evenNumbers = numbers.filter { it % 2 == 0 }
+    println("Even numbers: $evenNumbers")
+    
+    // Calculate sum
+    val sum = numbers.sum()
+    println("Sum of numbers: $sum")
+}`,
   },
 };
 

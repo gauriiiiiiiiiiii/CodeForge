@@ -1,7 +1,7 @@
 "use client";
 import { useCodeEditorStore } from "@/store/useCodeEditorStore";
 import { useEffect, useRef, useState } from "react";
-import { LANGUAGE_CONFIG } from "../_constants";
+import { LANGUAGE_CONFIG, FREE_LANGUAGES } from "../_constants";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronDownIcon, Lock, Sparkles } from "lucide-react";
@@ -27,7 +27,7 @@ function LanguageSelector({ hasAccess }: { hasAccess: boolean }) {
   }, []);
 
   const handleLanguageSelect = (langId: string) => {
-    if (!hasAccess && langId !== "javascript") return;
+    if (!hasAccess && !FREE_LANGUAGES.includes(langId)) return;
 
     setLanguage(langId);
     setIsOpen(false);
@@ -89,7 +89,7 @@ function LanguageSelector({ hasAccess }: { hasAccess: boolean }) {
 
             <div className="max-h-[280px] overflow-y-auto overflow-x-hidden">
               {Object.values(LANGUAGE_CONFIG).map((lang, index) => {
-                const isLocked = !hasAccess && lang.id !== "javascript";
+                const isLocked = !hasAccess && !FREE_LANGUAGES.includes(lang.id);
 
                 return (
                   <motion.div

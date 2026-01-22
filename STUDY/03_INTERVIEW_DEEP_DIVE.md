@@ -23,10 +23,14 @@ This document covers the key technical areas you must understand deeply for a se
 
 **Value Proposition**:
 1. **Write** code instantly without setup
-2. **Run** code in 10+ languages without installation
+2. **Run** code in 11 languages (5 FREE + 6 PRO) without installation
 3. **Share** executable code with others (not just text)
 4. **Discover** community solutions and implementations
-5. **Monetize** via pro subscription (advanced languages)
+5. **Monetize** via pro subscription (6 advanced languages)
+
+**Supported Languages**:
+- **FREE Tier (5)**: JavaScript, C, C++, Python, Java
+- **PRO Tier (6)**: Rust, Go, C#, Kotlin, PHP, Ruby
 
 **Success Metrics**:
 - Code execution latency < 500ms
@@ -322,8 +326,12 @@ SELECT * FROM snippetComments WHERE snippetId = ? ORDER BY _creationTime DESC;
 SELECT COUNT(*) FROM stars WHERE snippetId = ? AND userId = ?;
 
 // Pro feature enforcement
-SELECT isPro FROM users WHERE userId = ?;
-// Deny execution if (!isPro && language !== "javascript")
+// FREE: JavaScript, C, C++, Python, Java
+// PRO: Rust, Go, C#, Kotlin, PHP, Ruby
+const FREE_LANGUAGES = ["javascript", "c", "cpp", "python", "java"];
+if (!user.isPro && !FREE_LANGUAGES.includes(args.language)) {
+  throw new ConvexError("Pro subscription required");
+}
 ```
 
 ### 3.2 Authorization Model
@@ -352,7 +360,8 @@ if (snippet.userId !== identity.subject) {
 const user = await ctx.db.query("users")
   .withIndex("by_user_id", q => q.eq("userId", identity.subject))
   .first();
-if (!user.isPro && args.language !== "javascript") {
+const FREE_LANGUAGES = ["javascript", "c", "cpp", "python", "java"];
+if (!user.isPro && !FREE_LANGUAGES.includes(args.language)) {
   throw new ConvexError("Pro subscription required");
 }
 ```
@@ -398,7 +407,10 @@ if (signature !== computedSignature) {
 **Execution History Enforcement**:
 ```typescript
 // Save execution (pro limits)
-if (!user.isPro && args.language !== "javascript") {
+// FREE: JavaScript, C, C++, Python, Java
+// PRO: Rust, Go, C#, Kotlin, PHP, Ruby
+const FREE_LANGUAGES = ["javascript", "c", "cpp", "python", "java"];
+if (!user.isPro && !FREE_LANGUAGES.includes(args.language)) {
   throw new ConvexError("Pro subscription required");
 }
 ```
