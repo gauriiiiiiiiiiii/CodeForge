@@ -44,7 +44,7 @@ console.log('Sum of numbers:', sum);`,
   c: {
     id: "c",
     label: "C",
-    logoPath: "/c.png",
+    logoPath: "/c.svg",
     pistonRuntime: { language: "c", version: "10.2.0" },
     monacoLanguage: "c",
     defaultCode: `#include <stdio.h>
@@ -323,7 +323,7 @@ puts "Sum of numbers: #{sum}"`,
   kotlin: {
     id: "kotlin",
     label: "Kotlin",
-    logoPath: "/kotlin.png",
+    logoPath: "/kotlin.svg",
     pistonRuntime: { language: "kotlin", version: "1.8.0" },
     monacoLanguage: "kotlin",
     defaultCode: `fun main() {
